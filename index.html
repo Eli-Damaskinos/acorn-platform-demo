@@ -47,7 +47,7 @@
       </div>
 
       <div class="workspace-caption">WORKSPACE <span class="workspace-version">V 0.1</span></div>
-      <nav class="main-nav" aria-label="Reports">
+      <nav class="main-nav" aria-label="Workspace sections">
         <div class="nav-group-label">GENERAL</div>
         <button class="nav-item is-active" data-view="overview" aria-current="page"><svg class="icon"><use href="#i-grid"/></svg><span>Overview</span><span class="nav-current"></span></button>
         <div class="nav-group-label nav-group-spaced">PERFORMANCE</div>
@@ -57,6 +57,11 @@
         <button class="nav-item" data-view="energy"><svg class="icon"><use href="#i-zap"/></svg><span>Electricity & heat</span></button>
         <div class="nav-group-label nav-group-spaced">LOGISTICS</div>
         <button class="nav-item" data-view="logistics"><svg class="icon"><use href="#i-truck"/></svg><span>Virtual pipeline</span></button>
+        <div class="nav-group-label nav-group-spaced">FORECASTING</div>
+        <button class="nav-item" data-view="forecasting"><svg class="icon"><use href="#i-chart"/></svg><span>Forecasting</span><span class="nav-current"></span></button>
+        <button class="nav-item" data-view="anomalies"><svg class="icon"><use href="#i-info"/></svg><span>Anomaly detection</span><span class="nav-current"></span></button>
+        <div class="nav-group-label nav-group-spaced">REPORTS</div>
+        <button class="nav-item" data-view="reports"><svg class="icon"><use href="#i-calendar"/></svg><span>Report</span><span class="nav-current"></span></button>
       </nav>
 
       <div class="sidebar-foot">
@@ -89,7 +94,7 @@
           <div class="intro-right"><div class="date-label"><svg class="icon"><use href="#i-calendar"/></svg><span id="today-date">26 October 2026</span></div><div class="concept-caption"><span class="concept-pulse"></span> Concept preview <span class="concept-separator">/</span> No live connections</div></div>
         </div>
 
-        <div class="content-controls"><div class="section-marker"><span class="section-marker-icon"><svg class="icon"><use href="#i-chart"/></svg></span><span id="section-label">Performance snapshot</span></div><div class="range-control" role="group" aria-label="Reporting period"><span class="range-label">TIMEFRAME</span><button class="range-btn is-active" data-range="7" aria-pressed="true">7 days</button><button class="range-btn" data-range="30" aria-pressed="false">30 days</button><button class="range-btn" data-range="90" aria-pressed="false">90 days</button></div></div>
+        <div class="content-controls" id="content-controls"><div class="section-marker"><span class="section-marker-icon"><svg class="icon"><use href="#i-chart"/></svg></span><span id="section-label">Performance snapshot</span></div><div class="range-control" role="group" aria-label="Reporting period"><span class="range-label">TIMEFRAME</span><button class="range-btn is-active" data-range="7" aria-pressed="true">7 days</button><button class="range-btn" data-range="30" aria-pressed="false">30 days</button><button class="range-btn" data-range="90" aria-pressed="false">90 days</button></div></div>
 
         <section id="overview-view" class="view-section" aria-label="Overview dashboard">
           <div class="kpi-grid">
@@ -107,6 +112,86 @@
           <div class="secondary-grid">
             <article class="panel mix-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">INPUTS & MATERIALS</div><h2>Feedstock composition</h2><p>Example mix of materials processed</p></div><button class="small-round-link" data-navigate="feedstock" aria-label="View feedstock report"><svg class="icon"><use href="#i-arrow-right"/></svg></button></div><div class="mix-bar" aria-label="45 percent maize, 25 percent slurry, 18 percent litter, 12 percent other"><span style="width:45%;background:#7D9E5C"></span><span style="width:25%;background:#BED67A"></span><span style="width:18%;background:#E5C77E"></span><span style="width:12%;background:#DCDDD4"></span></div><div class="mix-legend"><div><i style="background:#7D9E5C"></i><span>Maize silage</span><strong>45%</strong></div><div><i style="background:#BED67A"></i><span>Slurry</span><strong>25%</strong></div><div><i style="background:#E5C77E"></i><span>Chicken litter</span><strong>18%</strong></div><div><i style="background:#DCDDD4"></i><span>Other</span><strong>12%</strong></div></div></article>
             <article class="panel module-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">ONE CONNECTED WORKSPACE</div><h2>Explore the platform</h2><p>Reporting areas for the eventual product</p></div></div><div class="module-grid"><button data-navigate="energy"><span class="module-icon module-blue"><svg class="icon"><use href="#i-zap"/></svg></span><span>Energy balance</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="logistics"><span class="module-icon module-orange"><svg class="icon"><use href="#i-truck"/></svg></span><span>Virtual pipeline</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="co2"><span class="module-icon module-green"><svg class="icon"><use href="#i-co2"/></svg></span><span>CO₂ recovery</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="biomethane"><span class="module-icon module-yellow"><svg class="icon"><use href="#i-flame"/></svg></span><span>Gas forecasting</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button></div></article>
+          </div>
+        </section>
+
+        <section id="forecasting-view" class="view-section" aria-label="Forecasting" hidden>
+          <div class="forecast-grid">
+            <article class="panel forecast-panel">
+              <div class="panel-head"><div><div class="panel-overline">BIOMETHANE OUTLOOK</div><h2>Production forecast</h2><p>Illustrative output trend against the forecast range</p></div><span class="forecast-badge">MODELLED</span></div>
+              <div class="forecast-summary"><strong id="forecast-gas-value">12,840 m³</strong><span>projected for selected period</span></div>
+              <div class="chart-legend"><span><i class="legend-dot legend-real"></i>Projected output</span><span><i class="legend-dot legend-plan"></i>Reference</span></div>
+              <div class="line-chart-wrap"><svg id="forecast-gas-chart" role="img" aria-label="Illustrative biomethane production forecast chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="chart-footnote"><span><span class="footnote-dot"></span>Synthetic forecast; not operational data</span><span class="chart-label">Biomethane</span></div>
+            </article>
+            <article class="panel forecast-panel">
+              <div class="panel-head"><div><div class="panel-overline">CARBON RECOVERY OUTLOOK</div><h2>CO₂ capture forecast</h2><p>Illustrative recovery rate and volume outlook</p></div><span class="forecast-badge forecast-badge-blue">MODELLED</span></div>
+              <div class="forecast-summary"><strong id="forecast-co2-value">68.4%</strong><span id="forecast-co2-note">capture rate · 73.9 t projected recovered</span></div>
+              <div class="chart-legend"><span><i class="legend-dot legend-real"></i>Projected recovery</span><span><i class="legend-dot legend-plan"></i>Reference</span></div>
+              <div class="line-chart-wrap"><svg id="forecast-co2-chart" role="img" aria-label="Illustrative CO₂ capture forecast chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="chart-footnote"><span><span class="footnote-dot"></span>Synthetic forecast; not operational data</span><span class="chart-label">CO₂ recovery</span></div>
+            </article>
+          </div>
+          <article class="panel forecast-note"><span class="integration-icon"><svg class="icon"><use href="#i-info"/></svg></span><div><div class="panel-overline">FORECASTING CONCEPT</div><h2>Planning signals, not promises.</h2><p>These visuals use generated demo values to show how production and recovery forecasts could be presented. Connect validated plant data and a forecasting model before using them for operational decisions.</p></div></article>
+        </section>
+
+        <section id="anomaly-view" class="view-section" aria-label="Anomaly detection" hidden>
+          <div class="detail-summary anomaly-summary">
+            <article class="detail-metric"><div class="metric-overline">DEMO EVENTS FLAGGED</div><strong>3</strong><small>Illustrative examples only</small></article>
+            <article class="detail-metric"><div class="metric-overline">HIGH PRIORITY</div><strong>1</strong><small>Requires operator review</small></article>
+            <article class="detail-metric"><div class="metric-overline">AREAS MONITORED</div><strong>4</strong><small>Example process signals</small></article>
+            <article class="detail-metric"><div class="metric-overline">LAST MODEL CHECK</div><strong>Today</strong><small>Demo status, no live monitoring</small></article>
+          </div>
+          <div class="anomaly-grid">
+            <article class="panel trend-panel">
+              <div class="panel-head"><div><div class="panel-overline">FAULT DETECTION SIGNALS</div><h2>Process signal deviations</h2><p>Example operating pattern with indicative alert markers</p></div><span class="forecast-badge forecast-badge-amber">ILLUSTRATIVE</span></div>
+              <div class="line-chart-wrap anomaly-chart-wrap"><svg id="anomaly-chart" role="img" aria-label="Illustrative process signal chart with synthetic deviations" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="chart-footnote"><span><span class="footnote-dot"></span>Synthetic signal; alerts are not real fault notifications</span></div>
+            </article>
+            <article class="panel anomaly-events">
+              <div class="panel-head"><div><div class="panel-overline">EXAMPLE ALERTS</div><h2>Review flagged events</h2><p>Sample fault-detection scenarios</p></div></div>
+              <div class="anomaly-event"><span class="severity-dot severity-high"></span><div><strong>Gas output below expected range</strong><small>Biomethane · 10:42 · Example deviation</small></div><span class="severity-label severity-label-high">High</span></div>
+              <div class="anomaly-event"><span class="severity-dot severity-medium"></span><div><strong>CO₂ capture rate drifting</strong><small>Recovery unit · 09:18 · Example deviation</small></div><span class="severity-label severity-label-medium">Medium</span></div>
+              <div class="anomaly-event"><span class="severity-dot severity-low"></span><div><strong>Feed rate variation detected</strong><small>Digester feed · Yesterday · Example deviation</small></div><span class="severity-label severity-label-low">Low</span></div>
+              <div class="anomaly-disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>Example alerts only. This prototype does not monitor equipment or detect actual faults.</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="reports-view" class="view-section" aria-label="Report builder" hidden>
+          <div class="report-builder-grid">
+            <article class="panel report-form-panel">
+              <div class="panel-head"><div><div class="panel-overline">PERSONALISED REPORT</div><h2>Build your KPI report</h2><p>Choose the measures and schedule for your report.</p></div></div>
+              <form id="report-form">
+                <label class="form-label" for="report-email">Email address</label>
+                <input class="form-input" id="report-email" name="email" type="email" placeholder="name@company.com" autocomplete="email" required>
+                <fieldset class="kpi-fieldset">
+                  <legend class="form-label">KPIs to include <span>Select at least one</span></legend>
+                  <div class="kpi-options">
+                    <label><input type="checkbox" name="kpis" value="biomethane"> <span>Biomethane output</span></label>
+                    <label><input type="checkbox" name="kpis" value="co2"> <span>CO₂ capture rate</span></label>
+                    <label><input type="checkbox" name="kpis" value="feedstock"> <span>Feedstock processed</span></label>
+                    <label><input type="checkbox" name="kpis" value="energy"> <span>Electricity used</span></label>
+                    <label><input type="checkbox" name="kpis" value="logistics"> <span>Virtual pipeline deliveries</span></label>
+                  </div>
+                </fieldset>
+                <label class="form-label" for="report-frequency">Email frequency</label>
+                <select class="form-input" id="report-frequency" name="frequency">
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                </select>
+                <button class="report-submit" type="submit">Create report <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                <p id="report-form-message" class="report-form-message" role="status" aria-live="polite"></p>
+              </form>
+            </article>
+            <aside class="panel report-preview-panel">
+              <div class="panel-overline">YOUR REPORT, YOUR WAY</div>
+              <h2>Stay close to the numbers that matter.</h2>
+              <p>Choose the KPIs you care about and a delivery cadence. Your report can be scoped to the currently selected site, <strong id="report-site-preview">Three Maids</strong>.</p>
+              <div class="report-preview-item"><span class="preview-check"><svg class="icon"><use href="#i-chart"/></svg></span><span><strong>Relevant metrics</strong><small>Include only the measures you select.</small></span></div>
+              <div class="report-preview-item"><span class="preview-check"><svg class="icon"><use href="#i-calendar"/></svg></span><span><strong>Regular delivery</strong><small>Pick a weekly or monthly cadence.</small></span></div>
+              <div class="report-demo-warning"><svg class="icon"><use href="#i-info"/></svg><span>Prototype only: this form does not store your request or send email.</span></div>
+            </aside>
           </div>
         </section>
 

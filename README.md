@@ -1,8 +1,8 @@
 # Acorn Insight — static reporting platform demo
 
-An HTML/CSS/vanilla JavaScript concept for a multi-site biomethane reporting platform. It contains six interactive views, a site switcher, reporting-period controls, responsive navigation, and SVG trend charts — all without a frontend framework, backend, or build step.
+An HTML/CSS/vanilla JavaScript concept for a multi-site biomethane reporting platform. It contains nine interactive views, including performance reports, biomethane and CO₂ forecasting concepts, anomaly-detection examples, and a KPI report builder, plus a site switcher, reporting-period controls, responsive navigation, and SVG trend charts — all without a frontend framework, backend, or build step.
 
-**Important:** Every metric, chart, status, percentage, and comparison shown is **synthetic and illustrative**. This prototype does not connect to SCADA, Azure SQL, Azure Functions, or a production API. Real site names are used as navigation examples only; figures do **not** describe those sites.
+**Important:** Every metric, chart, status, percentage, and comparison shown is **synthetic and illustrative**. This prototype does not connect to SCADA, Azure SQL, Azure Functions, or a production API. Real site names are used as navigation examples only; figures do **not** describe those sites. The report builder validates a request in the browser only; it does not store the configuration or send email.
 
 ## Files
 

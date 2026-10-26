@@ -75,6 +75,23 @@
       accent: 3
     }
   };
+  const specialViews = {
+    forecasting: {
+      menu: 'Forecasting', eyebrow: 'PERFORMANCE OUTLOOK', heading: 'Look ahead with <em>more clarity.</em>',
+      description: 'Explore illustrative biomethane production and CO₂ recovery forecasts for the selected site and timeframe.',
+      section: 'Forecast outlook'
+    },
+    anomalies: {
+      menu: 'Anomaly detection', eyebrow: 'FAULT DETECTION', heading: 'Spot changes <em>worth a closer look.</em>',
+      description: 'Review example process deviations and see how fault-detection signals could be surfaced.',
+      section: 'Example fault signals'
+    },
+    reports: {
+      menu: 'Report', eyebrow: 'PERSONALISED REPORTING', heading: 'Your KPIs, <em>your report.</em>',
+      description: 'Choose the operational measures you want included and how often you would like to receive a report.',
+      section: 'Create a report'
+    }
+  };
 
   const $ = (selector) => document.querySelector(selector);
   let state = { view: 'overview', site: 'three-maids', range: 7 };
@@ -212,19 +229,45 @@
     drawTrend('detail-chart', report.accent);
   }
 
+  function renderForecasting(m) {
+    $('#forecast-gas-value').textContent = `${number(m.gas)} m³`;
+    $('#forecast-co2-value').textContent = `${decimal(m.pct)}%`;
+    $('#forecast-co2-note').textContent = `capture rate · ${decimal(m.captured)} t projected recovered`;
+    drawTrend('forecast-gas-chart', 4);
+    drawTrend('forecast-co2-chart', -3);
+  }
+
+  function renderAnomalies() {
+    const chart = $('#anomaly-chart');
+    drawTrend('anomaly-chart', 8);
+    chart.insertAdjacentHTML('beforeend', `
+      <line x1="270" x2="270" y1="38" y2="222" stroke="#d68e59" stroke-dasharray="4 5" opacity=".65"/>
+      <circle cx="270" cy="91" r="8" fill="#fff1e6" stroke="#d68e59" stroke-width="2"/>
+      <circle cx="270" cy="91" r="3" fill="#d68e59"/>
+      <line x1="540" x2="540" y1="38" y2="222" stroke="#d6bd67" stroke-dasharray="4 5" opacity=".65"/>
+      <circle cx="540" cy="135" r="8" fill="#fff9df" stroke="#c7a94c" stroke-width="2"/>
+      <circle cx="540" cy="135" r="3" fill="#c7a94c"/>`);
+  }
+
   function render() {
     const overview = state.view === 'overview';
     const report = reports[state.view];
+    const special = specialViews[state.view];
+    const page = report || special;
     $('#overview-view').hidden = !overview;
-    $('#detail-view').hidden = overview;
-    $('#breadcrumb-page').textContent = overview ? 'Overview' : report.menu;
-    $('#page-eyebrow').textContent = overview ? 'OPERATIONS INTELLIGENCE' : report.eyebrow;
-    $('#page-heading').innerHTML = overview ? 'Your operations.<br><em>One clear view.</em>' : report.heading;
+    $('#detail-view').hidden = overview || !report;
+    $('#forecasting-view').hidden = state.view !== 'forecasting';
+    $('#anomaly-view').hidden = state.view !== 'anomalies';
+    $('#reports-view').hidden = state.view !== 'reports';
+    $('#content-controls').hidden = state.view === 'reports';
+    $('#breadcrumb-page').textContent = overview ? 'Overview' : page.menu;
+    $('#page-eyebrow').textContent = overview ? 'OPERATIONS INTELLIGENCE' : page.eyebrow;
+    $('#page-heading').innerHTML = overview ? 'Your operations.<br><em>One clear view.</em>' : page.heading;
     $('#page-description').textContent = overview
       ? 'See the connections between production, recovery, feedstock, energy and logistics — without jumping between systems.'
-      : report.description;
-    $('#section-label').textContent = overview ? 'Performance snapshot' : `${report.menu} snapshot`;
-    document.title = `Acorn Insight — ${overview ? 'Overview' : report.menu}`;
+      : page.description;
+    $('#section-label').textContent = overview ? 'Performance snapshot' : report ? `${report.menu} snapshot` : page.section;
+    document.title = `Acorn Insight — ${overview ? 'Overview' : page.menu}`;
     document.querySelectorAll('[data-view]').forEach((button) => {
       const active = button.dataset.view === state.view;
       button.classList.toggle('is-active', active);
@@ -237,7 +280,11 @@
       button.setAttribute('aria-pressed', String(active));
     });
     const metrics = getMetrics();
-    if (overview) renderOverview(metrics); else renderDetail(metrics);
+    if (overview) renderOverview(metrics);
+    else if (report) renderDetail(metrics);
+    else if (state.view === 'forecasting') renderForecasting(metrics);
+    else if (state.view === 'anomalies') renderAnomalies();
+    else if (state.view === 'reports') $('#report-site-preview').textContent = sites[state.site].name;
   }
 
   function closeMenu() {
@@ -246,7 +293,7 @@
     $('#open-menu').setAttribute('aria-expanded', 'false');
   }
   function navigate(view) {
-    if (view !== 'overview' && !reports[view]) return;
+    if (view !== 'overview' && !reports[view] && !specialViews[view]) return;
     state.view = view;
     render();
     closeMenu();
@@ -262,6 +309,17 @@
   $('#site-select').addEventListener('change', (event) => {
     state.site = event.target.value;
     render();
+  });
+  $('#report-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const message = $('#report-form-message');
+    if (!document.querySelector('input[name="kpis"]:checked')) {
+      message.textContent = 'Choose at least one KPI to include in your report.';
+      message.classList.add('is-error');
+      return;
+    }
+    message.textContent = 'Your report settings look good. This prototype does not store the request or send email.';
+    message.classList.remove('is-error');
   });
   $('#open-menu').addEventListener('click', () => {
     $('#sidebar').classList.add('is-open');
