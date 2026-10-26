@@ -20,86 +20,86 @@
   };
   const reports = {
     biomethane: {
-      menu: 'Biomethane', eyebrow: 'BIOMETHANE PERFORMANCE', heading: 'Make sense of <em>every cubic metre.</em>',
-      description: 'Track produced gas, compare it against the plan and give forecasting a home.',
-      overline: 'GAS PRODUCTION', chart: 'Output and production plan', subtitle: 'Illustrative generation trend against a reference',
-      chartLabel: 'Gas production', focusTitle: 'From feedstock to gas', focusDescription: 'A single thread between what goes into the digester and what comes out.',
-      focusCaption: 'Illustrative planned output achieved', focusBig: '94%', focusWidth: 94,
-      focusUnder: 'Not a measured production KPI',
+      menu: 'Biomethane', eyebrow: 'BIOMETHANE PRODUCTION', heading: 'Biomethane production',
+      description: 'Compare gas production with the plan, and review yield and flaring.',
+      overline: 'GAS PRODUCTION', chart: 'Production and plan', subtitle: 'Gas output by period',
+      chartLabel: 'Gas production', focusTitle: 'Production summary', focusDescription: 'Compare gas output with the plan and review the main production factors.',
+      focusCaption: 'Output against plan', focusBig: '94%', focusWidth: 94,
+      focusUnder: 'Example figure',
       drivers: ['Daily and monthly gas production', 'Lab-based biomethane yield curves', 'Production forecast and variance'],
-      questions: ['Are we producing the gas expected from the feedstock mix?', 'When did actual and forecast production diverge?', 'How much gas was exported, consumed or flared?'],
+      questions: ['How does output compare with the plan?', 'When did production move away from the forecast?', 'How much gas was exported, used or flared?'],
       accent: 0
     },
     co2: {
-      menu: 'CO₂ recovery', eyebrow: 'CARBON UTILISATION', heading: 'See the value in <em>every tonne.</em>',
-      description: 'Understand CO₂ generated, recovered, stored and missed — in context.',
-      overline: 'LIQUEFACTION & RECOVERY', chart: 'CO₂ recovery trend', subtitle: 'Illustrative capture performance versus reference',
-      chartLabel: 'CO₂ capture', focusTitle: 'Where does CO₂ go?', focusDescription: 'Connect production estimates to liquefaction, storage and collection.',
-      focusCaption: 'Illustrative recovery efficiency', focusBig: '68.4%', focusWidth: 68.4,
-      focusUnder: 'Synthetic example; not operating performance',
+      menu: 'CO₂ recovery', eyebrow: 'CO₂ RECOVERY', heading: 'CO₂ recovery',
+      description: 'Track estimated CO₂ production, capture, storage and collection.',
+      overline: 'LIQUEFACTION & RECOVERY', chart: 'CO₂ capture rate', subtitle: 'Capture rate by period',
+      chartLabel: 'CO₂ capture', focusTitle: 'CO₂ balance', focusDescription: 'Compare estimated CO₂ availability with captured and stored volumes.',
+      focusCaption: 'Capture rate', focusBig: '68.4%', focusWidth: 68.4,
+      focusUnder: 'Example figure',
       drivers: ['Available versus recovered CO₂', 'Unit state time and recovery losses', 'Storage levels and tanker collections'],
-      questions: ['How much CO₂ was available for capture?', 'What were the main causes of lost recovery?', 'Is storage or collection capacity the constraint?'],
+      questions: ['How much CO₂ was available to capture?', 'How much was captured or left unrecovered?', 'Is storage or collection limiting recovery?'],
       accent: -5
     },
     feedstock: {
-      menu: 'Feedstock', eyebrow: 'DIGESTER INPUTS', heading: 'Follow the input.<br><em>Understand the output.</em>',
-      description: 'Bring incoming loads, feeding, composition and estimated yields together.',
-      overline: 'MATERIAL FLOW', chart: 'Feedstock fed over time', subtitle: 'Illustrative input pattern against a reference',
-      chartLabel: 'Feeding trends', focusTitle: 'A clearer material mix', focusDescription: 'Compare energy crop and waste inputs without switching spreadsheets.',
-      focusCaption: 'Illustrative energy crop share', focusBig: '45%', focusWidth: 45,
-      focusUnder: 'Remaining 55% in other feedstock groups',
+      menu: 'Feedstock', eyebrow: 'FEEDSTOCK', heading: 'Feedstock deliveries and use',
+      description: 'Review incoming loads, feeding rates, material mix and estimated yield.',
+      overline: 'MATERIAL FLOW', chart: 'Feedstock fed', subtitle: 'Feedstock by period',
+      chartLabel: 'Feeding trends', focusTitle: 'Feedstock mix', focusDescription: 'Compare the amounts of each material fed to the digesters.',
+      focusCaption: 'Energy crop share', focusBig: '45%', focusWidth: 45,
+      focusUnder: 'Other materials make up 55%',
       drivers: ['Incoming weighbridge loads', 'Daily hopper feed by material', 'Clamp inventory and transfers'],
-      questions: ['Which materials make up the current feeding mix?', 'Does intake match actual digester feeding?', 'How long might stored feedstock last?'],
+      questions: ['What materials make up the current feed mix?', 'Do delivered quantities match the feeding totals?', 'How much feedstock remains in storage?'],
       accent: 6
     },
     energy: {
-      menu: 'Electricity & heat', eyebrow: 'ENERGY BALANCE', heading: 'Know where <em>the energy goes.</em>',
-      description: 'Connect electrical demand, generation and opportunities for efficiency.',
-      overline: 'ELECTRICAL DEMAND', chart: 'Electricity consumption trend', subtitle: 'Illustrative energy pattern against a reference',
-      chartLabel: 'Energy balance', focusTitle: 'Power in context', focusDescription: 'A consolidated view of imports, on-site generation and major consumers.',
-      focusCaption: 'Illustrative self-generation share', focusBig: '61%', focusWidth: 61,
-      focusUnder: 'Synthetic proportion, not a site reading',
+      menu: 'Electricity & heat', eyebrow: 'ENERGY USE', heading: 'Electricity and heat',
+      description: 'Review electricity demand, on-site generation and major consumers.',
+      overline: 'ELECTRICAL DEMAND', chart: 'Electricity use', subtitle: 'Electricity use by period',
+      chartLabel: 'Energy balance', focusTitle: 'On-site generation', focusDescription: 'Compare on-site generation with electricity demand and grid imports.',
+      focusCaption: 'On-site generation share', focusBig: '61%', focusWidth: 61,
+      focusUnder: 'Example figure',
       drivers: ['Site-wide power and energy', 'CHP generation', 'Equipment consumption and demand peaks'],
-      questions: ['What is driving site electricity demand?', 'When is on-site generation covering demand?', 'Which process is responsible for the largest peaks?'],
+      questions: ['What is driving electricity demand?', 'When does generation meet demand?', 'Which equipment uses the most power?'],
       accent: -8
     },
     logistics: {
-      menu: 'Virtual pipeline', eyebrow: 'DOWNSTREAM LOGISTICS', heading: 'From filling bay<br><em>to final delivery.</em>',
-      description: 'Envisage connected trailer positions, filling progress and delivered volumes.',
-      overline: 'MOVEMENT & DELIVERY', chart: 'Illustrative delivery volume', subtitle: 'Synthetic delivery pattern against a reference',
-      chartLabel: 'Trailer logistics', focusTitle: 'Movement, made visible', focusDescription: 'Bring fill telemetry, trailer position and deliveries onto one screen.',
-      focusCaption: 'Illustrative scheduled deliveries met', focusBig: '86%', focusWidth: 86,
-      focusUnder: 'Concept measure only',
+      menu: 'Virtual pipeline', eyebrow: 'GAS DELIVERIES', heading: 'Virtual pipeline deliveries',
+      description: 'Review trailer locations, filling progress and delivered volumes.',
+      overline: 'MOVEMENT & DELIVERY', chart: 'Gas delivered', subtitle: 'Delivery volumes by period',
+      chartLabel: 'Trailer logistics', focusTitle: 'Delivery schedule', focusDescription: 'Compare planned collections with completed deliveries.',
+      focusCaption: 'Scheduled deliveries completed', focusBig: '86%', focusWidth: 86,
+      focusUnder: 'Example figure',
       drivers: ['Trailer GPS and latest positions', 'Filling bay status and meter totals', 'Planned versus completed collections'],
-      questions: ['Where are trailers and what is their latest status?', 'Which trailer is filling and when might it finish?', 'What was loaded and successfully delivered?'],
+      questions: ['Where are the trailers now?', 'Which trailer is being filled?', 'How much gas was loaded and delivered?'],
       accent: 3
     }
   };
   const specialViews = {
     operational: {
-      menu: 'Live view', eyebrow: 'OPERATIONAL VIEW', heading: 'The plant, <em>in one view.</em>',
-      description: 'Explore an illustrative process schematic and sample sensor readings across the plant.',
-      section: 'Plant live view'
+      menu: 'Live view', eyebrow: 'OPERATIONAL VIEW', heading: 'Plant schematic',
+      description: 'Select a plant area to view its equipment and sample sensor readings.',
+      section: 'Plant areas'
     },
     forecasting: {
-      menu: 'Forecasting', eyebrow: 'PERFORMANCE OUTLOOK', heading: 'Look ahead with <em>more clarity.</em>',
-      description: 'Explore illustrative biomethane production and CO₂ recovery forecasts for the selected site and timeframe.',
-      section: 'Forecast outlook'
+      menu: 'Forecasting', eyebrow: 'FORECASTING', heading: 'Production forecasts',
+      description: 'View example biomethane production and CO₂ recovery forecasts for the selected site and period.',
+      section: 'Forecasts'
     },
     anomalies: {
-      menu: 'Anomaly detection', eyebrow: 'FAULT DETECTION', heading: 'Spot changes <em>worth a closer look.</em>',
-      description: 'Review example process deviations and see how fault-detection signals could be surfaced.',
-      section: 'Example fault signals'
+      menu: 'Anomaly detection', eyebrow: 'FAULT DETECTION', heading: 'Fault detection',
+      description: 'Review sample process deviations and example fault alerts.',
+      section: 'Sample alerts'
     },
     reports: {
-      menu: 'Report', eyebrow: 'PERSONALISED REPORTING', heading: 'Your KPIs, <em>your report.</em>',
-      description: 'Choose the operational measures you want included and how often you would like to receive a report.',
-      section: 'Create a report'
+      menu: 'Report', eyebrow: 'REPORTS', heading: 'Build a KPI report',
+      description: 'Choose which KPIs to include, where to send the report and how often to receive it.',
+      section: 'Report settings'
     }
   };
   const operationalAreas = {
     clamps: {
-      title: 'Clamps', description: 'Feedstock storage and clamp face monitoring',
+      title: 'Clamps', description: 'Feedstock storage and clamp readings',
       pipe: 'M 145 250 H 365 V 305 H 750',
       equipment: [
         { type: 'clamp', x: 100, y: 125, label: 'CLAMP 01' },
@@ -113,7 +113,7 @@
       ]
     },
     dispensers: {
-      title: 'Dispensers', description: 'Gas dispensing points and delivery pressure',
+      title: 'Dispensers', description: 'Dispenser status and delivery pressure',
       pipe: 'M 145 315 H 755 M 300 315 V 220 M 600 315 V 220',
       equipment: [
         { type: 'dispenser', x: 225, y: 105, label: 'DISPENSER 01' },
@@ -126,7 +126,7 @@
       ]
     },
     co2: {
-      title: 'CO₂ recovery', description: 'Recovery, liquefaction and storage overview',
+      title: 'CO₂ recovery', description: 'Recovery, liquefaction and storage',
       pipe: 'M 140 290 H 300 V 225 H 465 V 290 H 735 M 565 290 V 350 H 735',
       equipment: [
         { type: 'vessel', x: 95, y: 170, label: 'SEPARATOR' },
@@ -140,7 +140,7 @@
       ]
     },
     upgraders: {
-      title: 'Upgraders', description: 'Gas upgrading stages and product quality',
+      title: 'Upgraders', description: 'Gas upgrading equipment and product quality',
       pipe: 'M 110 300 H 760 M 310 300 V 225 M 585 300 V 225',
       equipment: [
         { type: 'vessel', x: 175, y: 120, label: 'PRE-TREATMENT' },
@@ -154,7 +154,7 @@
       ]
     },
     digesters: {
-      title: 'Digester tanks', description: 'Digestion vessels and gas collection',
+      title: 'Digester tanks', description: 'Digester status and gas collection',
       pipe: 'M 160 315 H 730 M 290 315 V 250 M 590 315 V 250 M 290 160 V 115 H 590 V 160',
       equipment: [
         { type: 'digester', x: 155, y: 105, label: 'DIGESTER 01' },
@@ -253,34 +253,34 @@
   function detailMetrics(view, m) {
     const v = state.range;
     if (view === 'biomethane') return [
-      ['Gas produced', `${number(m.gas)} m³`, 'Modelled output'],
-      ['Illustrative plan', `${number(m.gas * 1.06)} m³`, 'Reference output'],
-      ['Forecast alignment', '94.0%', 'Example fit to plan'],
-      ['Estimated gas flared', `${number(m.gas * .014)} m³`, 'Synthetic figure']
+      ['Gas produced', `${number(m.gas)} m³`, 'Demo value'],
+      ['Production plan', `${number(m.gas * 1.06)} m³`, 'Demo reference'],
+      ['Forecast alignment', '94.0%', 'Demo estimate'],
+      ['Estimated gas flared', `${number(m.gas * .014)} m³`, 'Demo estimate']
     ];
     if (view === 'co2') return [
-      ['Estimated available CO₂', `${decimal(m.potential)} t`, 'Synthetic potential'],
-      ['Captured CO₂', `${decimal(m.captured)} t`, 'Illustrative recovery'],
-      ['Not recovered', `${decimal(m.unrecovered)} t`, 'Estimated difference'],
+      ['CO₂ available', `${decimal(m.potential)} t`, 'Demo estimate'],
+      ['CO₂ captured', `${decimal(m.captured)} t`, 'Demo estimate'],
+      ['CO₂ not captured', `${decimal(m.unrecovered)} t`, 'Demo estimate'],
       ['Capture rate', `${decimal(m.pct)}%`, 'Of estimated availability']
     ];
     if (view === 'feedstock') return [
-      ['Total feedstock fed', `${number(m.feedstock)} t`, 'Synthetic intake'],
-      ['Energy crop share', '45%', 'Illustrative split'],
-      ['Other material share', '55%', 'Illustrative split'],
+      ['Feedstock fed', `${number(m.feedstock)} t`, 'Demo value'],
+      ['Energy crop share', '45%', 'Demo mix'],
+      ['Other material share', '55%', 'Demo mix'],
       ['Average fed per day', `${decimal(m.feedstock / v)} t`, 'Per calendar day']
     ];
     if (view === 'energy') return [
-      ['Total electricity used', `${decimal(m.electricity)} MWh`, 'Synthetic demand'],
-      ['On-site generation', `${decimal(m.electricity * .61)} MWh`, 'Illustrative supply'],
-      ['Grid contribution', `${decimal(m.electricity * .39)} MWh`, 'Illustrative supply'],
-      ['Generation share', '61%', 'Synthetic proportion']
+      ['Electricity used', `${decimal(m.electricity)} MWh`, 'Demo value'],
+      ['On-site generation', `${decimal(m.electricity * .61)} MWh`, 'Demo estimate'],
+      ['Grid contribution', `${decimal(m.electricity * .39)} MWh`, 'Demo estimate'],
+      ['Generation share', '61%', 'Demo estimate']
     ];
     return [
-      ['Completed collections', number(14 * m.multiplier), 'Illustrative loads'],
-      ['Volume transported', `${decimal(25.2 * m.multiplier)} t`, 'Illustrative volume'],
-      ['Average load weight', '1.8 t', 'Synthetic figure'],
-      ['Schedule completion', '86%', 'Synthetic proportion']
+      ['Completed collections', number(14 * m.multiplier), 'Demo loads'],
+      ['Volume transported', `${decimal(25.2 * m.multiplier)} t`, 'Demo value'],
+      ['Average load weight', '1.8 t', 'Demo value'],
+      ['Schedule completion', '86%', 'Demo estimate']
     ];
   }
 
@@ -292,7 +292,7 @@
     $('#detail-chart-subtitle').textContent = report.subtitle;
     $('#detail-chart-label').textContent = report.chartLabel;
     $('#detail-highlight').textContent = state.view === 'co2' ? `${decimal(m.captured)} t` : detailMetrics(state.view, m)[0][1];
-    $('#detail-highlight-note').textContent = state.view === 'co2' ? 'Illustrative CO₂ recovered' : 'Across selected period';
+    $('#detail-highlight-note').textContent = state.view === 'co2' ? 'CO₂ captured · demo value' : 'Selected period · demo value';
     $('#focus-title').textContent = report.focusTitle;
     $('#focus-description').textContent = report.focusDescription;
     $('#focus-caption').textContent = report.focusCaption;
@@ -307,7 +307,7 @@
   function renderForecasting(m) {
     $('#forecast-gas-value').textContent = `${number(m.gas)} m³`;
     $('#forecast-co2-value').textContent = `${decimal(m.pct)}%`;
-    $('#forecast-co2-note').textContent = `capture rate · ${decimal(m.captured)} t projected recovered`;
+    $('#forecast-co2-note').textContent = `capture rate · ${decimal(m.captured)} t estimated captured`;
     drawTrend('forecast-gas-chart', 4);
     drawTrend('forecast-co2-chart', -3);
   }
@@ -349,8 +349,8 @@
     $('#operational-area-title').textContent = area.title;
     $('#schematic-title').textContent = area.title;
     $('#schematic-description').textContent = area.description;
-    $('#sensor-site-name').textContent = `${sites[state.site].name} · sample values`;
-    $('#readings-time').textContent = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit' }).format(new Date());
+    $('#sensor-site-name').textContent = `${sites[state.site].name} · demo values`;
+    $('#readings-time').textContent = 'Demo';
     document.querySelectorAll('[data-area]').forEach((button) => {
       const active = button.dataset.area === state.area;
       button.classList.toggle('is-active', active);
@@ -359,10 +359,10 @@
     $('#sensor-readings').innerHTML = area.sensors.map((sensor) => `
       <div class="sensor-reading">
         <span class="sensor-status" aria-label="Sample reading"></span>
-        <div class="sensor-reading-copy"><strong>${sensor.label}</strong><small>${sensor.id} · Sample</small></div>
-        <div class="sensor-reading-value"><strong>${sensor.value}<small>${sensor.unit}</small></strong><span>Example</span></div>
+        <div class="sensor-reading-copy"><strong>${sensor.label}</strong><small>${sensor.id} · Demo</small></div>
+        <div class="sensor-reading-value"><strong>${sensor.value}<small>${sensor.unit}</small></strong><span>Demo</span></div>
       </div>`).join('');
-    $('#plant-schematic').setAttribute('aria-label', `Illustrative ${area.title.toLowerCase()} process schematic with synthetic sensor points`);
+    $('#plant-schematic').setAttribute('aria-label', `Demo ${area.title.toLowerCase()} schematic with sample sensor points`);
     $('#plant-schematic').innerHTML = `
       <defs>
         <pattern id="plant-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 H 0 V 28" fill="none" stroke="#eaf0e9" stroke-width="1"/></pattern>
@@ -388,10 +388,10 @@
     $('#content-controls').hidden = state.view === 'reports';
     $('#range-control').hidden = state.view === 'reports' || state.view === 'operational';
     $('#breadcrumb-page').textContent = overview ? 'Overview' : page.menu;
-    $('#page-eyebrow').textContent = overview ? 'OPERATIONS INTELLIGENCE' : page.eyebrow;
-    $('#page-heading').innerHTML = overview ? 'Your operations.<br><em>One clear view.</em>' : page.heading;
+    $('#page-eyebrow').textContent = overview ? 'OPERATIONS OVERVIEW' : page.eyebrow;
+    $('#page-heading').innerHTML = overview ? 'Operations overview' : page.heading;
     $('#page-description').textContent = overview
-      ? 'See the connections between production, recovery, feedstock, energy and logistics — without jumping between systems.'
+      ? 'Production, CO₂ recovery, feedstock, energy use and deliveries for the selected site.'
       : page.description;
     $('#section-label').textContent = overview ? 'Performance snapshot' : report ? `${report.menu} snapshot` : page.section;
     document.title = `Acorn Insight — ${overview ? 'Overview' : page.menu}`;
@@ -447,11 +447,11 @@
     event.preventDefault();
     const message = $('#report-form-message');
     if (!document.querySelector('input[name="kpis"]:checked')) {
-      message.textContent = 'Choose at least one KPI to include in your report.';
+      message.textContent = 'Select at least one KPI.';
       message.classList.add('is-error');
       return;
     }
-    message.textContent = 'Your report settings look good. This prototype does not store the request or send email.';
+    message.textContent = 'Settings complete. This demo does not save the report or send email.';
     message.classList.remove('is-error');
   });
   $('#open-menu').addEventListener('click', () => {

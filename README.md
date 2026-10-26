@@ -1,8 +1,8 @@
 # Acorn Insight — static reporting platform demo
 
-An HTML/CSS/vanilla JavaScript concept for a multi-site biomethane reporting platform. It contains ten interactive views, including performance reports, a plant operational schematic, biomethane and CO₂ forecasting concepts, anomaly-detection examples, and a KPI report builder, plus a site switcher, reporting-period controls, responsive navigation, and SVG trend charts — all without a frontend framework, backend, or build step.
+An HTML, CSS and JavaScript demo for a multi-site biomethane reporting dashboard. It includes performance reports, a plant schematic, sample forecasts and fault alerts, and a KPI report form. Change the site and reporting period to explore the pages. There is no framework, backend or build step.
 
-**Important:** Every metric, chart, status, percentage, and comparison shown is **synthetic and illustrative**. This prototype does not connect to SCADA, sensors, Azure SQL, Azure Functions, or a production API. The operational view is a schematic concept and its sample readings are not telemetry or safe operating limits. Real site names are used as navigation examples only; figures do **not** describe those sites. The report builder validates a request in the browser only; it does not store the configuration or send email.
+**Data note:** All figures and alerts are demo values. The dashboard is not connected to plant systems or sensors, and the values are not operating limits or site performance. Site names are examples only. The report form does not save settings or send email.
 
 ## Files
 
@@ -24,11 +24,11 @@ Just double-click `index.html` in a browser. There is no `npm install` or build 
 
 If you use the root files directly in a repo, a private GitHub repo can still deploy to a public static site.
 
-## Next steps to turn it into a product
+## If you develop this further
 
 - Replace values produced by `getMetrics()` with validated backend/API responses.
 - Add real site permissions, authentication, and access control before displaying internal operational data.
 - Introduce a shared data contract, loading/error/empty states, and component structure.
-- Move to React/TypeScript only when UI complexity justifies the migration.
+- Consider React/TypeScript if the interface grows enough to need it.
 
-This is a design prototype, not a source of operational truth.
+Do not use this demo for operational decisions.

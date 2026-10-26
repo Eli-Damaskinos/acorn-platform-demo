@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#15251f">
-  <meta name="description" content="Acorn Insight — an illustrative reporting platform concept for biomethane operations.">
+  <meta name="description" content="Biomethane operations dashboard demo with sample production, recovery, feedstock and delivery data.">
   <title>Acorn Insight — Operations overview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,9 +70,9 @@
         <div class="sidebar-callout">
           <div class="callout-decoration"></div>
           <div class="callout-symbol"><svg class="icon"><use href="#i-chart"/></svg></div>
-          <strong>One clearer picture.</strong>
-          <p>From feedstock to final delivery, all in one workspace.</p>
-          <span>PLATFORM CONCEPT <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+          <strong>Plant reports</strong>
+          <p>Production, feedstock, recovery and deliveries.</p>
+          <span>DEMO WORKSPACE <svg class="icon"><use href="#i-arrow-right"/></svg></span>
         </div>
         <div class="sidebar-footer-line"><span class="footer-avatar">A</span><span>Acorn Bioenergy<small>Internal design prototype</small></span><span class="footer-ellipsis">•••</span></div>
       </div>
@@ -92,8 +92,8 @@
 
       <div class="content-wrap">
         <div class="page-intro">
-          <div class="intro-copy"><div class="eyebrow"><span class="eyebrow-line"></span><span id="page-eyebrow">OPERATIONS INTELLIGENCE</span></div><h1 id="page-heading">Your operations.<br><em>One clear view.</em></h1><p id="page-description">See the connections between production, recovery, feedstock, energy and logistics — without jumping between systems.</p></div>
-          <div class="intro-right"><div class="date-label"><svg class="icon"><use href="#i-calendar"/></svg><span id="today-date">26 October 2026</span></div><div class="concept-caption"><span class="concept-pulse"></span> Concept preview <span class="concept-separator">/</span> No live connections</div></div>
+          <div class="intro-copy"><div class="eyebrow"><span class="eyebrow-line"></span><span id="page-eyebrow">OPERATIONS OVERVIEW</span></div><h1 id="page-heading">Operations overview</h1><p id="page-description">Production, CO₂ recovery, feedstock, energy use and deliveries for the selected site.</p></div>
+          <div class="intro-right"><div class="date-label"><svg class="icon"><use href="#i-calendar"/></svg><span id="today-date">26 October 2026</span></div><div class="concept-caption"><span class="concept-pulse"></span>Demo data · not connected to plant systems</div></div>
         </div>
 
         <div class="content-controls" id="content-controls"><div class="section-marker"><span class="section-marker-icon"><svg class="icon"><use href="#i-chart"/></svg></span><span id="section-label">Performance snapshot</span></div><div class="range-control" id="range-control" role="group" aria-label="Reporting period"><span class="range-label">TIMEFRAME</span><button class="range-btn is-active" data-range="7" aria-pressed="true">7 days</button><button class="range-btn" data-range="30" aria-pressed="false">30 days</button><button class="range-btn" data-range="90" aria-pressed="false">90 days</button></div></div>
@@ -102,22 +102,22 @@
           <div class="kpi-grid">
             <article class="kpi-card kpi-gas"><div class="kpi-top"><span class="kpi-icon"><svg class="icon"><use href="#i-flame"/></svg></span><span class="kpi-change"><svg class="icon"><use href="#i-arrow-up"/></svg> 5.2%</span></div><div class="kpi-label">Biomethane output</div><div class="kpi-value"><span id="kpi-gas">12,840</span><small>m³</small></div><div class="kpi-footer"><span>Produced in selected period</span><svg id="spark-gas" viewBox="0 0 94 28" aria-hidden="true"></svg></div></article>
             <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon kpi-icon-soft"><svg class="icon"><use href="#i-co2"/></svg></span><span class="kpi-change">+ 3.4 pts</span></div><div class="kpi-label">CO₂ capture rate</div><div class="kpi-value"><span id="kpi-co2">68.4</span><small>%</small></div><div class="kpi-footer"><span>Of estimated available CO₂</span><svg id="spark-co2" viewBox="0 0 94 28" aria-hidden="true"></svg></div></article>
-            <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon kpi-icon-gold"><svg class="icon"><use href="#i-leaf"/></svg></span><span class="kpi-change"><svg class="icon"><use href="#i-arrow-up"/></svg> 2.1%</span></div><div class="kpi-label">Feedstock processed</div><div class="kpi-value"><span id="kpi-feedstock">428</span><small>t</small></div><div class="kpi-footer"><span>Material fed into digesters</span><svg id="spark-feedstock" viewBox="0 0 94 28" aria-hidden="true"></svg></div></article>
-            <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon kpi-icon-blue"><svg class="icon"><use href="#i-zap"/></svg></span><span class="kpi-change change-neutral">Illustrative</span></div><div class="kpi-label">Electricity used</div><div class="kpi-value"><span id="kpi-energy">22.8</span><small>MWh</small></div><div class="kpi-footer"><span>Across modelled operations</span><svg id="spark-energy" viewBox="0 0 94 28" aria-hidden="true"></svg></div></article>
+            <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon kpi-icon-gold"><svg class="icon"><use href="#i-leaf"/></svg></span><span class="kpi-change"><svg class="icon"><use href="#i-arrow-up"/></svg> 2.1%</span></div><div class="kpi-label">Feedstock processed</div><div class="kpi-value"><span id="kpi-feedstock">428</span><small>t</small></div><div class="kpi-footer"><span>Fed into digesters</span><svg id="spark-feedstock" viewBox="0 0 94 28" aria-hidden="true"></svg></div></article>
+            <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon kpi-icon-blue"><svg class="icon"><use href="#i-zap"/></svg></span><span class="kpi-change change-neutral">Demo value</span></div><div class="kpi-label">Electricity used</div><div class="kpi-value"><span id="kpi-energy">22.8</span><small>MWh</small></div><div class="kpi-footer"><span>Selected period</span><svg id="spark-energy" viewBox="0 0 94 28" aria-hidden="true"></svg></div></article>
           </div>
 
           <div class="primary-grid">
-            <article class="panel trend-panel"><div class="panel-head"><div><div class="panel-overline">PRODUCTION PERFORMANCE</div><h2>Biomethane production</h2><p>Output trend against the illustrative plan</p></div><div class="chart-legend"><span><i class="legend-dot legend-real"></i>Output</span><span><i class="legend-dot legend-plan"></i>Plan</span></div></div><div class="chart-summary"><strong id="chart-main-value">12,840 <small>m³</small></strong><span class="chart-positive">↗ 5.2% <span>vs. previous period</span></span></div><div class="line-chart-wrap"><svg id="production-chart" role="img" aria-label="Illustrative biomethane production and plan line chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div><div class="chart-footnote"><span><span class="footnote-dot"></span>Illustrative figures, not plant telemetry</span><button class="text-action" data-navigate="biomethane">Explore production <svg class="icon"><use href="#i-arrow-right"/></svg></button></div></article>
-            <article class="panel capture-panel"><div class="panel-head"><div><div class="panel-overline">RESOURCE RECOVERY</div><h2>CO₂ capture</h2><p>Estimated recovery performance</p></div><div class="mini-ellipsis" aria-hidden="true">•••</div></div><div class="capture-visual"><div class="capture-ring" id="capture-ring"><div class="capture-ring-middle"><span class="ring-small-label">CAPTURE RATE</span><strong id="capture-pct">68.4<small>%</small></strong><span class="ring-caption">of available CO₂</span></div></div></div><div class="capture-details"><div><span class="capture-detail-icon detail-green"></span><span>Recovered</span><strong id="captured-tonnes">73.9 t</strong></div><div><span class="capture-detail-icon detail-gray"></span><span>Unrecovered</span><strong id="uncaptured-tonnes">34.1 t</strong></div></div><button class="capture-link" data-navigate="co2">View CO₂ insights <svg class="icon"><use href="#i-arrow-right"/></svg></button></article>
+            <article class="panel trend-panel"><div class="panel-head"><div><div class="panel-overline">PRODUCTION</div><h2>Biomethane production</h2><p>Output compared with the plan</p></div><div class="chart-legend"><span><i class="legend-dot legend-real"></i>Output</span><span><i class="legend-dot legend-plan"></i>Plan</span></div></div><div class="chart-summary"><strong id="chart-main-value">12,840 <small>m³</small></strong><span class="chart-positive">↗ 5.2% <span>vs. previous period</span></span></div><div class="line-chart-wrap"><svg id="production-chart" role="img" aria-label="Demo biomethane production and plan chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div><div class="chart-footnote"><span><span class="footnote-dot"></span>Demo figures · not plant readings</span><button class="text-action" data-navigate="biomethane">View biomethane <svg class="icon"><use href="#i-arrow-right"/></svg></button></div></article>
+            <article class="panel capture-panel"><div class="panel-head"><div><div class="panel-overline">CO₂ RECOVERY</div><h2>CO₂ capture</h2><p>Capture rate and estimated volumes</p></div><div class="mini-ellipsis" aria-hidden="true">•••</div></div><div class="capture-visual"><div class="capture-ring" id="capture-ring"><div class="capture-ring-middle"><span class="ring-small-label">CAPTURE RATE</span><strong id="capture-pct">68.4<small>%</small></strong><span class="ring-caption">of available CO₂</span></div></div></div><div class="capture-details"><div><span class="capture-detail-icon detail-green"></span><span>Captured</span><strong id="captured-tonnes">73.9 t</strong></div><div><span class="capture-detail-icon detail-gray"></span><span>Not captured</span><strong id="uncaptured-tonnes">34.1 t</strong></div></div><button class="capture-link" data-navigate="co2">View CO₂ recovery <svg class="icon"><use href="#i-arrow-right"/></svg></button></article>
           </div>
 
           <div class="secondary-grid">
-            <article class="panel mix-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">INPUTS & MATERIALS</div><h2>Feedstock composition</h2><p>Example mix of materials processed</p></div><button class="small-round-link" data-navigate="feedstock" aria-label="View feedstock report"><svg class="icon"><use href="#i-arrow-right"/></svg></button></div><div class="mix-bar" aria-label="45 percent maize, 25 percent slurry, 18 percent litter, 12 percent other"><span style="width:45%;background:#7D9E5C"></span><span style="width:25%;background:#BED67A"></span><span style="width:18%;background:#E5C77E"></span><span style="width:12%;background:#DCDDD4"></span></div><div class="mix-legend"><div><i style="background:#7D9E5C"></i><span>Maize silage</span><strong>45%</strong></div><div><i style="background:#BED67A"></i><span>Slurry</span><strong>25%</strong></div><div><i style="background:#E5C77E"></i><span>Chicken litter</span><strong>18%</strong></div><div><i style="background:#DCDDD4"></i><span>Other</span><strong>12%</strong></div></div></article>
-            <article class="panel module-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">ONE CONNECTED WORKSPACE</div><h2>Explore the platform</h2><p>Reporting areas for the eventual product</p></div></div><div class="module-grid"><button data-navigate="energy"><span class="module-icon module-blue"><svg class="icon"><use href="#i-zap"/></svg></span><span>Energy balance</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="logistics"><span class="module-icon module-orange"><svg class="icon"><use href="#i-truck"/></svg></span><span>Virtual pipeline</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="co2"><span class="module-icon module-green"><svg class="icon"><use href="#i-co2"/></svg></span><span>CO₂ recovery</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="biomethane"><span class="module-icon module-yellow"><svg class="icon"><use href="#i-flame"/></svg></span><span>Gas forecasting</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button></div></article>
+            <article class="panel mix-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">FEEDSTOCK</div><h2>Feedstock mix</h2><p>Demo mix of materials fed</p></div><button class="small-round-link" data-navigate="feedstock" aria-label="View feedstock"><svg class="icon"><use href="#i-arrow-right"/></svg></button></div><div class="mix-bar" aria-label="45 percent maize, 25 percent slurry, 18 percent litter, 12 percent other"><span style="width:45%;background:#7D9E5C"></span><span style="width:25%;background:#BED67A"></span><span style="width:18%;background:#E5C77E"></span><span style="width:12%;background:#DCDDD4"></span></div><div class="mix-legend"><div><i style="background:#7D9E5C"></i><span>Maize silage</span><strong>45%</strong></div><div><i style="background:#BED67A"></i><span>Slurry</span><strong>25%</strong></div><div><i style="background:#E5C77E"></i><span>Chicken litter</span><strong>18%</strong></div><div><i style="background:#DCDDD4"></i><span>Other</span><strong>12%</strong></div></div></article>
+            <article class="panel module-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">REPORTS</div><h2>More plant data</h2><p>Choose a report to view</p></div></div><div class="module-grid"><button data-navigate="energy"><span class="module-icon module-blue"><svg class="icon"><use href="#i-zap"/></svg></span><span>Electricity and heat</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="logistics"><span class="module-icon module-orange"><svg class="icon"><use href="#i-truck"/></svg></span><span>Deliveries</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="co2"><span class="module-icon module-green"><svg class="icon"><use href="#i-co2"/></svg></span><span>CO₂ recovery</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="forecasting"><span class="module-icon module-yellow"><svg class="icon"><use href="#i-flame"/></svg></span><span>Forecasts</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button></div></article>
           </div>
         </section>
 
-        <section id="operational-view" class="view-section" aria-label="Operational live view" hidden>
+        <section id="operational-view" class="view-section" aria-label="Plant schematic" hidden>
           <div class="operational-toolbar panel">
             <div class="operational-area-copy"><div class="panel-overline">PLANT AREAS</div><h2 id="operational-area-title">Digester tanks</h2></div>
             <div class="area-switcher" role="group" aria-label="Choose plant area">
@@ -131,13 +131,13 @@
           <div class="operational-grid">
             <article class="panel schematic-panel">
               <div class="panel-head"><div><div class="panel-overline">PROCESS SCHEMATIC</div><h2 id="schematic-title">Digester tanks</h2><p id="schematic-description">Digestion vessels and gas collection</p></div><span class="live-demo-badge"><i></i> DEMO VALUES</span></div>
-              <div class="schematic-canvas"><svg id="plant-schematic" role="img" aria-label="Illustrative digester tanks process schematic" viewBox="0 0 900 440" preserveAspectRatio="xMidYMid meet"></svg></div>
-              <div class="schematic-legend"><span><i class="legend-dot legend-real"></i>Process line</span><span><i class="sensor-legend-dot"></i>Sensor point</span><span class="schematic-note">Illustrative schematic · No live connection</span></div>
+              <div class="schematic-canvas"><svg id="plant-schematic" role="img" aria-label="Demo digester tanks process schematic" viewBox="0 0 900 440" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="schematic-legend"><span><i class="legend-dot legend-real"></i>Process line</span><span><i class="sensor-legend-dot"></i>Sensor point</span><span class="schematic-note">Demo schematic · not connected to plant systems</span></div>
             </article>
             <aside class="panel sensor-panel">
-              <div class="panel-head"><div><div class="panel-overline">LATEST READINGS</div><h2>Sensor points</h2><p id="sensor-site-name">Three Maids · sample values</p></div><span class="readings-time"><svg class="icon"><use href="#i-calendar"/></svg><span id="readings-time">—</span></span></div>
+              <div class="panel-head"><div><div class="panel-overline">SAMPLE READINGS</div><h2>Sensor points</h2><p id="sensor-site-name">Three Maids · demo values</p></div><span class="readings-time"><svg class="icon"><use href="#i-info"/></svg><span id="readings-time">Demo</span></span></div>
               <div id="sensor-readings" class="sensor-readings"></div>
-              <div class="sensor-disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>Values are generated examples for this concept and are not telemetry or safe operating limits.</span></div>
+              <div class="sensor-disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>Demo values only. These are not live readings or operating limits.</span></div>
             </aside>
           </div>
         </section>
@@ -145,42 +145,42 @@
         <section id="forecasting-view" class="view-section" aria-label="Forecasting" hidden>
           <div class="forecast-grid">
             <article class="panel forecast-panel">
-              <div class="panel-head"><div><div class="panel-overline">BIOMETHANE OUTLOOK</div><h2>Production forecast</h2><p>Illustrative output trend against the forecast range</p></div><span class="forecast-badge">MODELLED</span></div>
+              <div class="panel-head"><div><div class="panel-overline">BIOMETHANE</div><h2>Production forecast</h2><p>Output by period</p></div><span class="forecast-badge">DEMO</span></div>
               <div class="forecast-summary"><strong id="forecast-gas-value">12,840 m³</strong><span>projected for selected period</span></div>
               <div class="chart-legend"><span><i class="legend-dot legend-real"></i>Projected output</span><span><i class="legend-dot legend-plan"></i>Reference</span></div>
-              <div class="line-chart-wrap"><svg id="forecast-gas-chart" role="img" aria-label="Illustrative biomethane production forecast chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
-              <div class="chart-footnote"><span><span class="footnote-dot"></span>Synthetic forecast; not operational data</span><span class="chart-label">Biomethane</span></div>
+              <div class="line-chart-wrap"><svg id="forecast-gas-chart" role="img" aria-label="Demo biomethane production forecast chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="chart-footnote"><span><span class="footnote-dot"></span>Demo forecast · not operational data</span><span class="chart-label">Biomethane</span></div>
             </article>
             <article class="panel forecast-panel">
-              <div class="panel-head"><div><div class="panel-overline">CARBON RECOVERY OUTLOOK</div><h2>CO₂ capture forecast</h2><p>Illustrative recovery rate and volume outlook</p></div><span class="forecast-badge forecast-badge-blue">MODELLED</span></div>
+              <div class="panel-head"><div><div class="panel-overline">CO₂ RECOVERY</div><h2>Capture forecast</h2><p>Capture rate and estimated volume</p></div><span class="forecast-badge forecast-badge-blue">DEMO</span></div>
               <div class="forecast-summary"><strong id="forecast-co2-value">68.4%</strong><span id="forecast-co2-note">capture rate · 73.9 t projected recovered</span></div>
               <div class="chart-legend"><span><i class="legend-dot legend-real"></i>Projected recovery</span><span><i class="legend-dot legend-plan"></i>Reference</span></div>
-              <div class="line-chart-wrap"><svg id="forecast-co2-chart" role="img" aria-label="Illustrative CO₂ capture forecast chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
-              <div class="chart-footnote"><span><span class="footnote-dot"></span>Synthetic forecast; not operational data</span><span class="chart-label">CO₂ recovery</span></div>
+              <div class="line-chart-wrap"><svg id="forecast-co2-chart" role="img" aria-label="Demo CO₂ capture forecast chart" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="chart-footnote"><span><span class="footnote-dot"></span>Demo forecast · not operational data</span><span class="chart-label">CO₂ recovery</span></div>
             </article>
           </div>
-          <article class="panel forecast-note"><span class="integration-icon"><svg class="icon"><use href="#i-info"/></svg></span><div><div class="panel-overline">FORECASTING CONCEPT</div><h2>Planning signals, not promises.</h2><p>These visuals use generated demo values to show how production and recovery forecasts could be presented. Connect validated plant data and a forecasting model before using them for operational decisions.</p></div></article>
+          <article class="panel forecast-note"><span class="integration-icon"><svg class="icon"><use href="#i-info"/></svg></span><div><div class="panel-overline">ABOUT THESE FORECASTS</div><h2>Demo forecasts only</h2><p>Figures on this page are generated for the prototype. They are not based on plant data and should not be used for operational decisions.</p></div></article>
         </section>
 
         <section id="anomaly-view" class="view-section" aria-label="Anomaly detection" hidden>
           <div class="detail-summary anomaly-summary">
-            <article class="detail-metric"><div class="metric-overline">DEMO EVENTS FLAGGED</div><strong>3</strong><small>Illustrative examples only</small></article>
-            <article class="detail-metric"><div class="metric-overline">HIGH PRIORITY</div><strong>1</strong><small>Requires operator review</small></article>
-            <article class="detail-metric"><div class="metric-overline">AREAS MONITORED</div><strong>4</strong><small>Example process signals</small></article>
-            <article class="detail-metric"><div class="metric-overline">LAST MODEL CHECK</div><strong>Today</strong><small>Demo status, no live monitoring</small></article>
+            <article class="detail-metric"><div class="metric-overline">SAMPLE ALERTS</div><strong>3</strong><small>Demo examples</small></article>
+            <article class="detail-metric"><div class="metric-overline">HIGH PRIORITY</div><strong>1</strong><small>Sample alert</small></article>
+            <article class="detail-metric"><div class="metric-overline">SIGNALS SHOWN</div><strong>4</strong><small>Example process signals</small></article>
+            <article class="detail-metric"><div class="metric-overline">MONITORING STATUS</div><strong>Off</strong><small>No live data connection</small></article>
           </div>
           <div class="anomaly-grid">
             <article class="panel trend-panel">
-              <div class="panel-head"><div><div class="panel-overline">FAULT DETECTION SIGNALS</div><h2>Process signal deviations</h2><p>Example operating pattern with indicative alert markers</p></div><span class="forecast-badge forecast-badge-amber">ILLUSTRATIVE</span></div>
-              <div class="line-chart-wrap anomaly-chart-wrap"><svg id="anomaly-chart" role="img" aria-label="Illustrative process signal chart with synthetic deviations" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
-              <div class="chart-footnote"><span><span class="footnote-dot"></span>Synthetic signal; alerts are not real fault notifications</span></div>
+              <div class="panel-head"><div><div class="panel-overline">PROCESS SIGNALS</div><h2>Sample deviations</h2><p>Demo signal with marked changes</p></div><span class="forecast-badge forecast-badge-amber">DEMO</span></div>
+              <div class="line-chart-wrap anomaly-chart-wrap"><svg id="anomaly-chart" role="img" aria-label="Demo process signal chart with sample deviations" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="chart-footnote"><span><span class="footnote-dot"></span>Demo signal · no faults are being monitored</span></div>
             </article>
             <article class="panel anomaly-events">
-              <div class="panel-head"><div><div class="panel-overline">EXAMPLE ALERTS</div><h2>Review flagged events</h2><p>Sample fault-detection scenarios</p></div></div>
-              <div class="anomaly-event"><span class="severity-dot severity-high"></span><div><strong>Gas output below expected range</strong><small>Biomethane · 10:42 · Example deviation</small></div><span class="severity-label severity-label-high">High</span></div>
-              <div class="anomaly-event"><span class="severity-dot severity-medium"></span><div><strong>CO₂ capture rate drifting</strong><small>Recovery unit · 09:18 · Example deviation</small></div><span class="severity-label severity-label-medium">Medium</span></div>
-              <div class="anomaly-event"><span class="severity-dot severity-low"></span><div><strong>Feed rate variation detected</strong><small>Digester feed · Yesterday · Example deviation</small></div><span class="severity-label severity-label-low">Low</span></div>
-              <div class="anomaly-disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>Example alerts only. This prototype does not monitor equipment or detect actual faults.</span></div>
+              <div class="panel-head"><div><div class="panel-overline">SAMPLE ALERTS</div><h2>Example events</h2><p>Possible conditions to review</p></div></div>
+              <div class="anomaly-event"><span class="severity-dot severity-high"></span><div><strong>Gas output below expected range</strong><small>Biomethane · 10:42 · Demo alert</small></div><span class="severity-label severity-label-high">High</span></div>
+              <div class="anomaly-event"><span class="severity-dot severity-medium"></span><div><strong>CO₂ capture rate falling</strong><small>Recovery unit · 09:18 · Demo alert</small></div><span class="severity-label severity-label-medium">Medium</span></div>
+              <div class="anomaly-event"><span class="severity-dot severity-low"></span><div><strong>Feed rate has changed</strong><small>Digester feed · Yesterday · Demo alert</small></div><span class="severity-label severity-label-low">Low</span></div>
+              <div class="anomaly-disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>These are examples only. No equipment is being monitored.</span></div>
             </article>
           </div>
         </section>
@@ -188,7 +188,7 @@
         <section id="reports-view" class="view-section" aria-label="Report builder" hidden>
           <div class="report-builder-grid">
             <article class="panel report-form-panel">
-              <div class="panel-head"><div><div class="panel-overline">PERSONALISED REPORT</div><h2>Build your KPI report</h2><p>Choose the measures and schedule for your report.</p></div></div>
+              <div class="panel-head"><div><div class="panel-overline">REPORT SETTINGS</div><h2>Choose what to include</h2><p>Select the KPIs and delivery schedule.</p></div></div>
               <form id="report-form">
                 <label class="form-label" for="report-email">Email address</label>
                 <input class="form-input" id="report-email" name="email" type="email" placeholder="name@company.com" autocomplete="email" required>
@@ -202,7 +202,7 @@
                     <label><input type="checkbox" name="kpis" value="logistics"> <span>Virtual pipeline deliveries</span></label>
                   </div>
                 </fieldset>
-                <label class="form-label" for="report-frequency">Email frequency</label>
+                <label class="form-label" for="report-frequency">Send report</label>
                 <select class="form-input" id="report-frequency" name="frequency">
                   <option value="weekly">Weekly</option>
                   <option value="monthly">Monthly</option>
@@ -212,12 +212,12 @@
               </form>
             </article>
             <aside class="panel report-preview-panel">
-              <div class="panel-overline">YOUR REPORT, YOUR WAY</div>
-              <h2>Stay close to the numbers that matter.</h2>
-              <p>Choose the KPIs you care about and a delivery cadence. Your report can be scoped to the currently selected site, <strong id="report-site-preview">Three Maids</strong>.</p>
-              <div class="report-preview-item"><span class="preview-check"><svg class="icon"><use href="#i-chart"/></svg></span><span><strong>Relevant metrics</strong><small>Include only the measures you select.</small></span></div>
-              <div class="report-preview-item"><span class="preview-check"><svg class="icon"><use href="#i-calendar"/></svg></span><span><strong>Regular delivery</strong><small>Pick a weekly or monthly cadence.</small></span></div>
-              <div class="report-demo-warning"><svg class="icon"><use href="#i-info"/></svg><span>Prototype only: this form does not store your request or send email.</span></div>
+              <div class="panel-overline">REPORT DETAILS</div>
+              <h2>Send a regular KPI summary</h2>
+              <p>Selected site: <strong id="report-site-preview">Three Maids</strong>.</p>
+              <div class="report-preview-item"><span class="preview-check"><svg class="icon"><use href="#i-chart"/></svg></span><span><strong>Selected KPIs</strong><small>Only the measures you ticked.</small></span></div>
+              <div class="report-preview-item"><span class="preview-check"><svg class="icon"><use href="#i-calendar"/></svg></span><span><strong>Delivery schedule</strong><small>Weekly or monthly.</small></span></div>
+              <div class="report-demo-warning"><svg class="icon"><use href="#i-info"/></svg><span>This form is a demo. It does not save settings or send email.</span></div>
             </aside>
           </div>
         </section>
@@ -225,13 +225,13 @@
         <section id="detail-view" class="view-section" aria-label="Report detail" hidden>
           <div class="detail-summary" id="detail-summary"></div>
           <div class="primary-grid detail-main-grid">
-            <article class="panel trend-panel"><div class="panel-head"><div><div class="panel-overline" id="detail-overline">PERFORMANCE TREND</div><h2 id="detail-chart-title">Output trend</h2><p id="detail-chart-subtitle">Illustrative period totals</p></div><div class="chart-legend"><span><i class="legend-dot legend-real"></i>Illustrative output</span><span><i class="legend-dot legend-plan"></i>Reference</span></div></div><div class="detail-chart-metric"><strong id="detail-highlight">—</strong><span id="detail-highlight-note">Concept-level metric</span></div><div class="line-chart-wrap detail-chart-wrap"><svg id="detail-chart" role="img" aria-label="Illustrative reporting trend" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div><div class="chart-footnote"><span><span class="footnote-dot"></span>Design-only chart using synthetic values</span><span class="chart-label" id="detail-chart-label">Reporting concept</span></div></article>
-            <article class="panel detail-focus-panel"><div class="panel-overline">REPORT HIGHLIGHTS</div><h2 id="focus-title">What matters</h2><p id="focus-description">A connected view of performance and its drivers.</p><div class="focus-visual"><span class="focus-visual-caption" id="focus-caption">Indicative breakdown</span><strong id="focus-big">—</strong><div class="focus-bar-track"><span id="focus-bar"></span></div><span class="focus-under" id="focus-under">Illustrative value</span></div><div class="focus-list" id="focus-list"></div></article>
+            <article class="panel trend-panel">            <div class="panel-head"><div><div class="panel-overline" id="detail-overline">PERFORMANCE</div><h2 id="detail-chart-title">Output trend</h2><p id="detail-chart-subtitle">Values by period</p></div><div class="chart-legend"><span><i class="legend-dot legend-real"></i>Output</span><span><i class="legend-dot legend-plan"></i>Reference</span></div></div><div class="detail-chart-metric"><strong id="detail-highlight">—</strong><span id="detail-highlight-note">Selected period · demo value</span></div><div class="line-chart-wrap detail-chart-wrap"><svg id="detail-chart" role="img" aria-label="Demo reporting trend" viewBox="0 0 760 265" preserveAspectRatio="xMidYMid meet"></svg></div><div class="chart-footnote"><span><span class="footnote-dot"></span>Demo data · not plant readings</span><span class="chart-label" id="detail-chart-label">Reporting</span></div></article>
+            <article class="panel detail-focus-panel"><div class="panel-overline">SUMMARY</div><h2 id="focus-title">Summary</h2><p id="focus-description">Key figures for this report.</p><div class="focus-visual"><span class="focus-visual-caption" id="focus-caption">Share</span><strong id="focus-big">—</strong><div class="focus-bar-track"><span id="focus-bar"></span></div><span class="focus-under" id="focus-under">Demo value</span></div><div class="focus-list" id="focus-list"></div></article>
           </div>
-          <div class="detail-bottom-grid"><article class="panel next-panel"><div class="panel-overline">DESIGNED TO ANSWER</div><h2>Questions worth asking</h2><ul id="detail-questions"></ul></article><article class="panel integration-panel"><div class="integration-icon"><svg class="icon"><use href="#i-shield"/></svg></div><div><div class="panel-overline">FUTURE INTEGRATION</div><h2>Ready for real data, later.</h2><p>This page is a frontend concept. A future FastAPI service could supply validated metrics from Azure SQL, fed by your existing ingestion pipelines.</p><span class="integration-tag">NOT CONNECTED TO LIVE SYSTEMS</span></div></article></div>
+          <div class="detail-bottom-grid"><article class="panel next-panel"><div class="panel-overline">QUESTIONS</div><h2>Things to check</h2><ul id="detail-questions"></ul></article><article class="panel integration-panel"><div class="integration-icon"><svg class="icon"><use href="#i-shield"/></svg></div><div><div class="panel-overline">DATA CONNECTION</div><h2>Demo data only</h2><p>This prototype is not connected to plant systems or a reporting API. The figures on these pages are examples, not operational data.</p><span class="integration-tag">NO LIVE DATA</span></div></article></div>
         </section>
 
-        <footer class="site-footer"><span>© 2026 Acorn Bioenergy <span class="footer-mid-dot">·</span> Insight concept v0.1</span><span><span class="footer-status-dot"></span> Static prototype <span class="footer-mid-dot">·</span> All figures synthetic</span></footer>
+        <footer class="site-footer"><span>© 2026 Acorn Bioenergy <span class="footer-mid-dot">·</span> Demo v0.1</span><span><span class="footer-status-dot"></span> Sample data · no live connection</span></footer>
       </div>
     </main>
   </div>
