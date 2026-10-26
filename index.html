@@ -57,6 +57,8 @@
         <button class="nav-item" data-view="energy"><svg class="icon"><use href="#i-zap"/></svg><span>Electricity & heat</span></button>
         <div class="nav-group-label nav-group-spaced">LOGISTICS</div>
         <button class="nav-item" data-view="logistics"><svg class="icon"><use href="#i-truck"/></svg><span>Virtual pipeline</span></button>
+        <div class="nav-group-label nav-group-spaced">OPERATIONAL VIEW</div>
+        <button class="nav-item" data-view="operational"><svg class="icon"><use href="#i-grid"/></svg><span>Live view</span><span class="nav-current"></span></button>
         <div class="nav-group-label nav-group-spaced">FORECASTING</div>
         <button class="nav-item" data-view="forecasting"><svg class="icon"><use href="#i-chart"/></svg><span>Forecasting</span><span class="nav-current"></span></button>
         <button class="nav-item" data-view="anomalies"><svg class="icon"><use href="#i-info"/></svg><span>Anomaly detection</span><span class="nav-current"></span></button>
@@ -94,7 +96,7 @@
           <div class="intro-right"><div class="date-label"><svg class="icon"><use href="#i-calendar"/></svg><span id="today-date">26 October 2026</span></div><div class="concept-caption"><span class="concept-pulse"></span> Concept preview <span class="concept-separator">/</span> No live connections</div></div>
         </div>
 
-        <div class="content-controls" id="content-controls"><div class="section-marker"><span class="section-marker-icon"><svg class="icon"><use href="#i-chart"/></svg></span><span id="section-label">Performance snapshot</span></div><div class="range-control" role="group" aria-label="Reporting period"><span class="range-label">TIMEFRAME</span><button class="range-btn is-active" data-range="7" aria-pressed="true">7 days</button><button class="range-btn" data-range="30" aria-pressed="false">30 days</button><button class="range-btn" data-range="90" aria-pressed="false">90 days</button></div></div>
+        <div class="content-controls" id="content-controls"><div class="section-marker"><span class="section-marker-icon"><svg class="icon"><use href="#i-chart"/></svg></span><span id="section-label">Performance snapshot</span></div><div class="range-control" id="range-control" role="group" aria-label="Reporting period"><span class="range-label">TIMEFRAME</span><button class="range-btn is-active" data-range="7" aria-pressed="true">7 days</button><button class="range-btn" data-range="30" aria-pressed="false">30 days</button><button class="range-btn" data-range="90" aria-pressed="false">90 days</button></div></div>
 
         <section id="overview-view" class="view-section" aria-label="Overview dashboard">
           <div class="kpi-grid">
@@ -112,6 +114,31 @@
           <div class="secondary-grid">
             <article class="panel mix-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">INPUTS & MATERIALS</div><h2>Feedstock composition</h2><p>Example mix of materials processed</p></div><button class="small-round-link" data-navigate="feedstock" aria-label="View feedstock report"><svg class="icon"><use href="#i-arrow-right"/></svg></button></div><div class="mix-bar" aria-label="45 percent maize, 25 percent slurry, 18 percent litter, 12 percent other"><span style="width:45%;background:#7D9E5C"></span><span style="width:25%;background:#BED67A"></span><span style="width:18%;background:#E5C77E"></span><span style="width:12%;background:#DCDDD4"></span></div><div class="mix-legend"><div><i style="background:#7D9E5C"></i><span>Maize silage</span><strong>45%</strong></div><div><i style="background:#BED67A"></i><span>Slurry</span><strong>25%</strong></div><div><i style="background:#E5C77E"></i><span>Chicken litter</span><strong>18%</strong></div><div><i style="background:#DCDDD4"></i><span>Other</span><strong>12%</strong></div></div></article>
             <article class="panel module-panel"><div class="panel-head panel-head-tight"><div><div class="panel-overline">ONE CONNECTED WORKSPACE</div><h2>Explore the platform</h2><p>Reporting areas for the eventual product</p></div></div><div class="module-grid"><button data-navigate="energy"><span class="module-icon module-blue"><svg class="icon"><use href="#i-zap"/></svg></span><span>Energy balance</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="logistics"><span class="module-icon module-orange"><svg class="icon"><use href="#i-truck"/></svg></span><span>Virtual pipeline</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="co2"><span class="module-icon module-green"><svg class="icon"><use href="#i-co2"/></svg></span><span>CO₂ recovery</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button><button data-navigate="biomethane"><span class="module-icon module-yellow"><svg class="icon"><use href="#i-flame"/></svg></span><span>Gas forecasting</span><svg class="icon module-arrow"><use href="#i-arrow-right"/></svg></button></div></article>
+          </div>
+        </section>
+
+        <section id="operational-view" class="view-section" aria-label="Operational live view" hidden>
+          <div class="operational-toolbar panel">
+            <div class="operational-area-copy"><div class="panel-overline">PLANT AREAS</div><h2 id="operational-area-title">Digester tanks</h2></div>
+            <div class="area-switcher" role="group" aria-label="Choose plant area">
+              <button class="area-button" data-area="clamps" aria-pressed="false">Clamps</button>
+              <button class="area-button" data-area="dispensers" aria-pressed="false">Dispensers</button>
+              <button class="area-button" data-area="co2" aria-pressed="false">CO₂</button>
+              <button class="area-button" data-area="upgraders" aria-pressed="false">Upgraders</button>
+              <button class="area-button is-active" data-area="digesters" aria-pressed="true">Digester tanks</button>
+            </div>
+          </div>
+          <div class="operational-grid">
+            <article class="panel schematic-panel">
+              <div class="panel-head"><div><div class="panel-overline">PROCESS SCHEMATIC</div><h2 id="schematic-title">Digester tanks</h2><p id="schematic-description">Digestion vessels and gas collection</p></div><span class="live-demo-badge"><i></i> DEMO VALUES</span></div>
+              <div class="schematic-canvas"><svg id="plant-schematic" role="img" aria-label="Illustrative digester tanks process schematic" viewBox="0 0 900 440" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="schematic-legend"><span><i class="legend-dot legend-real"></i>Process line</span><span><i class="sensor-legend-dot"></i>Sensor point</span><span class="schematic-note">Illustrative schematic · No live connection</span></div>
+            </article>
+            <aside class="panel sensor-panel">
+              <div class="panel-head"><div><div class="panel-overline">LATEST READINGS</div><h2>Sensor points</h2><p id="sensor-site-name">Three Maids · sample values</p></div><span class="readings-time"><svg class="icon"><use href="#i-calendar"/></svg><span id="readings-time">—</span></span></div>
+              <div id="sensor-readings" class="sensor-readings"></div>
+              <div class="sensor-disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>Values are generated examples for this concept and are not telemetry or safe operating limits.</span></div>
+            </aside>
           </div>
         </section>
 

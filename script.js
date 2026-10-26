@@ -76,6 +76,11 @@
     }
   };
   const specialViews = {
+    operational: {
+      menu: 'Live view', eyebrow: 'OPERATIONAL VIEW', heading: 'The plant, <em>in one view.</em>',
+      description: 'Explore an illustrative process schematic and sample sensor readings across the plant.',
+      section: 'Plant live view'
+    },
     forecasting: {
       menu: 'Forecasting', eyebrow: 'PERFORMANCE OUTLOOK', heading: 'Look ahead with <em>more clarity.</em>',
       description: 'Explore illustrative biomethane production and CO₂ recovery forecasts for the selected site and timeframe.',
@@ -92,9 +97,79 @@
       section: 'Create a report'
     }
   };
+  const operationalAreas = {
+    clamps: {
+      title: 'Clamps', description: 'Feedstock storage and clamp face monitoring',
+      pipe: 'M 145 250 H 365 V 305 H 750',
+      equipment: [
+        { type: 'clamp', x: 100, y: 125, label: 'CLAMP 01' },
+        { type: 'clamp', x: 335, y: 125, label: 'CLAMP 02' },
+        { type: 'hopper', x: 680, y: 230, label: 'FEED HOPPER' }
+      ],
+      sensors: [
+        { id: 'CL-01', label: 'Clamp 01 temperature', value: '18.6', unit: '°C', x: 190, y: 175 },
+        { id: 'CL-02', label: 'Clamp 02 stock level', value: '72', unit: '%', x: 425, y: 175 },
+        { id: 'FD-01', label: 'Feed rate', value: '5.8', unit: 't/h', x: 735, y: 290 }
+      ]
+    },
+    dispensers: {
+      title: 'Dispensers', description: 'Gas dispensing points and delivery pressure',
+      pipe: 'M 145 315 H 755 M 300 315 V 220 M 600 315 V 220',
+      equipment: [
+        { type: 'dispenser', x: 225, y: 105, label: 'DISPENSER 01' },
+        { type: 'dispenser', x: 525, y: 105, label: 'DISPENSER 02' }
+      ],
+      sensors: [
+        { id: 'DP-01', label: 'Dispenser 01 pressure', value: '210', unit: 'bar', x: 275, y: 205 },
+        { id: 'DP-02', label: 'Dispenser 02 pressure', value: '198', unit: 'bar', x: 575, y: 205 },
+        { id: 'FL-01', label: 'Total flow rate', value: '1,240', unit: 'Nm³/h', x: 740, y: 315 }
+      ]
+    },
+    co2: {
+      title: 'CO₂ recovery', description: 'Recovery, liquefaction and storage overview',
+      pipe: 'M 140 290 H 300 V 225 H 465 V 290 H 735 M 565 290 V 350 H 735',
+      equipment: [
+        { type: 'vessel', x: 95, y: 170, label: 'SEPARATOR' },
+        { type: 'compressor', x: 330, y: 165, label: 'LIQUEFACTION' },
+        { type: 'tank', x: 650, y: 155, label: 'CO₂ STORAGE' }
+      ],
+      sensors: [
+        { id: 'CO-01', label: 'Recovery rate', value: '68.4', unit: '%', x: 170, y: 250 },
+        { id: 'PT-02', label: 'Liquefaction pressure', value: '18.2', unit: 'bar', x: 430, y: 255 },
+        { id: 'LT-03', label: 'Storage level', value: '64', unit: '%', x: 735, y: 250 }
+      ]
+    },
+    upgraders: {
+      title: 'Upgraders', description: 'Gas upgrading stages and product quality',
+      pipe: 'M 110 300 H 760 M 310 300 V 225 M 585 300 V 225',
+      equipment: [
+        { type: 'vessel', x: 175, y: 120, label: 'PRE-TREATMENT' },
+        { type: 'compressor', x: 450, y: 135, label: 'UPGRADER 01' },
+        { type: 'tank', x: 700, y: 160, label: 'PRODUCT GAS' }
+      ],
+      sensors: [
+        { id: 'CH-01', label: 'Methane concentration', value: '97.8', unit: '%', x: 255, y: 265 },
+        { id: 'PT-04', label: 'Inlet pressure', value: '7.2', unit: 'bar', x: 520, y: 265 },
+        { id: 'QT-02', label: 'Product gas flow', value: '1,820', unit: 'Nm³/h', x: 735, y: 300 }
+      ]
+    },
+    digesters: {
+      title: 'Digester tanks', description: 'Digestion vessels and gas collection',
+      pipe: 'M 160 315 H 730 M 290 315 V 250 M 590 315 V 250 M 290 160 V 115 H 590 V 160',
+      equipment: [
+        { type: 'digester', x: 155, y: 105, label: 'DIGESTER 01' },
+        { type: 'digester', x: 455, y: 105, label: 'DIGESTER 02' }
+      ],
+      sensors: [
+        { id: 'TT-01', label: 'Digester 01 temperature', value: '39.2', unit: '°C', x: 280, y: 215 },
+        { id: 'LT-02', label: 'Digester 02 level', value: '81', unit: '%', x: 580, y: 215 },
+        { id: 'PT-03', label: 'Biogas header pressure', value: '42.6', unit: 'mbar', x: 735, y: 115 }
+      ]
+    }
+  };
 
   const $ = (selector) => document.querySelector(selector);
-  let state = { view: 'overview', site: 'three-maids', range: 7 };
+  let state = { view: 'overview', site: 'three-maids', range: 7, area: 'digesters' };
   const number = (value) => Math.round(value).toLocaleString('en-GB');
   const decimal = (value) => value.toLocaleString('en-GB', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
   const icon = (id) => `<svg class="icon" aria-hidden="true"><use href="#i-${id}"/></svg>`;
@@ -249,6 +324,56 @@
       <circle cx="540" cy="135" r="3" fill="#c7a94c"/>`);
   }
 
+  function renderPlantEquipment(equipment) {
+    if (equipment.type === 'digester' || equipment.type === 'tank') {
+      const height = equipment.type === 'digester' ? 150 : 126;
+      return `<g class="plant-equipment"><rect x="${equipment.x}" y="${equipment.y + 18}" width="130" height="${height}" rx="5"/><ellipse cx="${equipment.x + 65}" cy="${equipment.y + 18}" rx="65" ry="18"/><path d="M ${equipment.x} ${equipment.y + height + 18} Q ${equipment.x + 65} ${equipment.y + height + 44} ${equipment.x + 130} ${equipment.y + height + 18}"/><text x="${equipment.x + 65}" y="${equipment.y + height + 2}" text-anchor="middle">${equipment.label}</text></g>`;
+    }
+    if (equipment.type === 'clamp') {
+      return `<g class="plant-equipment"><path d="M ${equipment.x} ${equipment.y + 40} L ${equipment.x + 25} ${equipment.y + 12} H ${equipment.x + 180} L ${equipment.x + 205} ${equipment.y + 40} V ${equipment.y + 130} H ${equipment.x} Z"/><path class="equipment-accent" d="M ${equipment.x + 13} ${equipment.y + 45} H ${equipment.x + 192}"/><text x="${equipment.x + 102}" y="${equipment.y + 100}" text-anchor="middle">${equipment.label}</text></g>`;
+    }
+    if (equipment.type === 'hopper') {
+      return `<g class="plant-equipment"><path d="M ${equipment.x} ${equipment.y} H ${equipment.x + 120} L ${equipment.x + 100} ${equipment.y + 75} H ${equipment.x + 20} Z"/><path d="M ${equipment.x + 45} ${equipment.y + 75} V ${equipment.y + 115} H ${equipment.x + 75} V ${equipment.y + 75}"/><text x="${equipment.x + 60}" y="${equipment.y - 12}" text-anchor="middle">${equipment.label}</text></g>`;
+    }
+    if (equipment.type === 'dispenser') {
+      return `<g class="plant-equipment"><rect x="${equipment.x}" y="${equipment.y}" width="105" height="118" rx="9"/><rect class="equipment-screen" x="${equipment.x + 18}" y="${equipment.y + 18}" width="68" height="37" rx="4"/><path d="M ${equipment.x + 52} ${equipment.y + 58} V ${equipment.y + 93} M ${equipment.x + 52} ${equipment.y + 93} q 25 0 25 -19"/><text x="${equipment.x + 52}" y="${equipment.y + 141}" text-anchor="middle">${equipment.label}</text></g>`;
+    }
+    if (equipment.type === 'compressor') {
+      return `<g class="plant-equipment"><rect x="${equipment.x}" y="${equipment.y}" width="155" height="112" rx="8"/><circle cx="${equipment.x + 52}" cy="${equipment.y + 55}" r="26"/><path d="M ${equipment.x + 52} ${equipment.y + 34} V ${equipment.y + 76} M ${equipment.x + 31} ${equipment.y + 55} H ${equipment.x + 73}"/><rect class="equipment-screen" x="${equipment.x + 91}" y="${equipment.y + 25}" width="43" height="57" rx="4"/><text x="${equipment.x + 77}" y="${equipment.y + 135}" text-anchor="middle">${equipment.label}</text></g>`;
+    }
+    return `<g class="plant-equipment"><rect x="${equipment.x}" y="${equipment.y}" width="125" height="112" rx="8"/><ellipse cx="${equipment.x + 62}" cy="${equipment.y}" rx="62" ry="12"/><path d="M ${equipment.x + 28} ${equipment.y + 42} H ${equipment.x + 97} M ${equipment.x + 28} ${equipment.y + 57} H ${equipment.x + 97}"/><text x="${equipment.x + 62}" y="${equipment.y + 94}" text-anchor="middle">${equipment.label}</text></g>`;
+  }
+
+  function renderOperational() {
+    const area = operationalAreas[state.area];
+    $('#operational-area-title').textContent = area.title;
+    $('#schematic-title').textContent = area.title;
+    $('#schematic-description').textContent = area.description;
+    $('#sensor-site-name').textContent = `${sites[state.site].name} · sample values`;
+    $('#readings-time').textContent = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit' }).format(new Date());
+    document.querySelectorAll('[data-area]').forEach((button) => {
+      const active = button.dataset.area === state.area;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    $('#sensor-readings').innerHTML = area.sensors.map((sensor) => `
+      <div class="sensor-reading">
+        <span class="sensor-status" aria-label="Sample reading"></span>
+        <div class="sensor-reading-copy"><strong>${sensor.label}</strong><small>${sensor.id} · Sample</small></div>
+        <div class="sensor-reading-value"><strong>${sensor.value}<small>${sensor.unit}</small></strong><span>Example</span></div>
+      </div>`).join('');
+    $('#plant-schematic').setAttribute('aria-label', `Illustrative ${area.title.toLowerCase()} process schematic with synthetic sensor points`);
+    $('#plant-schematic').innerHTML = `
+      <defs>
+        <pattern id="plant-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 H 0 V 28" fill="none" stroke="#eaf0e9" stroke-width="1"/></pattern>
+        <filter id="sensor-glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect width="900" height="440" rx="12" fill="url(#plant-grid)"/>
+      <path class="process-pipe" d="${area.pipe}"/>
+      ${area.equipment.map(renderPlantEquipment).join('')}
+      ${area.sensors.map((sensor) => `<g class="plant-sensor"><circle cx="${sensor.x}" cy="${sensor.y}" r="13" class="sensor-halo"/><circle cx="${sensor.x}" cy="${sensor.y}" r="5" class="sensor-core" filter="url(#sensor-glow)"/><rect class="sensor-tag" x="${sensor.x + 17}" y="${sensor.y - 13}" width="54" height="24" rx="6"/><text class="sensor-tag-text" x="${sensor.x + 44}" y="${sensor.y + 3}" text-anchor="middle">${sensor.id}</text></g>`).join('')}`;
+  }
+
   function render() {
     const overview = state.view === 'overview';
     const report = reports[state.view];
@@ -259,7 +384,9 @@
     $('#forecasting-view').hidden = state.view !== 'forecasting';
     $('#anomaly-view').hidden = state.view !== 'anomalies';
     $('#reports-view').hidden = state.view !== 'reports';
+    $('#operational-view').hidden = state.view !== 'operational';
     $('#content-controls').hidden = state.view === 'reports';
+    $('#range-control').hidden = state.view === 'reports' || state.view === 'operational';
     $('#breadcrumb-page').textContent = overview ? 'Overview' : page.menu;
     $('#page-eyebrow').textContent = overview ? 'OPERATIONS INTELLIGENCE' : page.eyebrow;
     $('#page-heading').innerHTML = overview ? 'Your operations.<br><em>One clear view.</em>' : page.heading;
@@ -285,6 +412,7 @@
     else if (state.view === 'forecasting') renderForecasting(metrics);
     else if (state.view === 'anomalies') renderAnomalies();
     else if (state.view === 'reports') $('#report-site-preview').textContent = sites[state.site].name;
+    else if (state.view === 'operational') renderOperational();
   }
 
   function closeMenu() {
@@ -305,6 +433,11 @@
     if (nav) navigate(nav.dataset.view || nav.dataset.navigate);
     const range = event.target.closest('[data-range]');
     if (range) { state.range = Number(range.dataset.range); render(); }
+    const area = event.target.closest('[data-area]');
+    if (area && operationalAreas[area.dataset.area]) {
+      state.area = area.dataset.area;
+      renderOperational();
+    }
   });
   $('#site-select').addEventListener('change', (event) => {
     state.site = event.target.value;
